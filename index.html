@@ -1,251 +1,197 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KEPENGURUSAN PKS PERIODE 2025/2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PEMILIHAN KETUA PKS</title>
 
-    <style>
-        :root {
-            --navy: #001f3f;
-            --blue: #0074D9;
-            --light-blue: #7FDBFF;
-            --white: #ffffff;
-            --gray: #f4f4f4;
-        }
+<style>
+/* ===== BACKGROUND PALING BELAKANG ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwhIxXOHruPYfsCMwXP_i95oezTti80LDVwdJ2HI7-tnp6veqZPztsrKSBvZiagVINHutfdo6i7c14G5bSNRerRwYy9EgOG8Tojj8uYS1BCREr5s5YIFPNdsVmoXUx2FMYvQ6uPhk_n1MuhICV4-ELq1Zk_OQ9FpGEEcd8wgkkjQA1nArHb2Iwqof0tuE/s1600/1000417367.png")
+              no-repeat center center fixed;
+  background-size: cover;
+}
 
-        /* ===================
-           BODY & BACKGROUND
-           =================== */
-        body {
-            position: relative;
-            margin: 0;
-            padding: 20px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 0;
-        }
+/* overlay agar teks terbaca */
+.overlay {
+  background: rgba(10, 25, 60, 0.85);
+  min-height: 100vh;
+  padding: 20px;
+}
 
-        /* Background Foto Paling Belakang */
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwhIxXOHruPYfsCMwXP_i95oezTti80LDVwdJ2HI7-tnp6veqZPztsrKSBvZiagVINHutfdo6i7c14G5bSNRerRwYy9EgOG8Tojj8uYS1BCREr5s5YIFPNdsVmoXUx2FMYvQ6uPhk_n1MuhICV4-ELq1Zk_OQ9FpGEEcd8wgkkjQA1nArHb2Iwqof0tuE/s1600/1000417367.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: -2;
-        }
+/* ===== JUDUL ===== */
+h1 {
+  text-align: center;
+  color: #a8d8ff;
+  margin-bottom: 30px;
+}
 
-        /* Overlay supaya teks tetap terbaca */
-        body::after {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 31, 63, 0.75);
-            z-index: -1;
-        }
+/* ===== KARTU CALON ===== */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-        /* ===================
-           HEADER
-           =================== */
-        h1 {
-            color: var(--white);
-            text-align: center;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-        }
+.card {
+  background: #0b1d3a;
+  color: white;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
 
-        /* ===================
-           CARD STYLES
-           =================== */
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
-        .card {
-            background: var(--white);
-            border-radius: 14px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            border-top: 6px solid var(--navy);
-            transition: transform .25s;
-        }
+.role {
+  margin-top: 8px;
+  font-weight: bold;
+  color: #7fd1ff;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.vote {
+  font-size: 22px;
+  margin: 10px 0;
+}
 
-        .position {
-            display: inline-block;
-            background: var(--light-blue);
-            color: var(--navy);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: .85rem;
-            font-weight: bold;
-            margin-bottom: 15px;
-            min-height: 20px;
-        }
+/* ===== TOMBOL ===== */
+.buttons button {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  margin: 5px;
+}
 
-        .photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 15px;
-            border: 4px solid var(--light-blue);
-        }
+.minus {
+  background: #ff6b6b;
+  color: white;
+}
 
-        .order {
-            color: var(--blue);
-            font-weight: bold;
-        }
+.plus {
+  background: #4cd3ff;
+  color: #002244;
+}
 
-        .name {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--navy);
-            margin: 6px 0;
-        }
+/* ===== RESET ===== */
+.reset {
+  margin-top: 30px;
+  text-align: center;
+}
 
-        .votes {
-            font-size: 2.6rem;
-            font-weight: bold;
-            color: var(--navy);
-            margin: 10px 0;
-        }
-
-        .controls {
-            display: flex;
-            justify-content: center;
-            gap: 18px;
-        }
-
-        button {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: none;
-            font-size: 1.6rem;
-            cursor: pointer;
-            color: white;
-        }
-
-        .minus { background: #ff4136; }
-        .plus  { background: #2ecc40; }
-
-        button:active {
-            transform: scale(.9);
-        }
-    </style>
+.reset button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ff3b3b;
+  color: white;
+  cursor: pointer;
+}
+</style>
 </head>
 
 <body>
+<div class="overlay">
 
-<h1>KEPENGURUSAN PKS PERIODE 2025/2026</h1>
+<h1>PEMILIHAN KETUA PKS</h1>
 
-<div class="container" id="container"></div>
+<div class="container" id="list"></div>
+
+<div class="reset">
+  <button onclick="resetVoting()">RESET VOTING</button>
+</div>
+
+</div>
 
 <script>
-    const positions = [
-        "KETUA PKS",
-        "WAKIL KETUA 1 PKS",
-        "WAKIL KETUA 2 PKS",
-        "SEKERTARIS PKS",
-        "BENDAHARA PKS"
-    ];
+/* ===== DATA CALON ===== */
+let candidates = [
+  {id:1, name:"Calon 1", img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0tmHzJCyb2P__CxPLZkWbU9HK2tIAYt9NS-cs19A5SgozIO29R4ixIC6qbZo1qaJHaiGU6XCSygQLD0vPAXfQ6D15POvd5vTs4hjfg_B1xPdy4tdOgHX62_uUGI8EmSPwgkHy2XDnTFHH6jMR22_L5ch6thwcVRRivURYlqaUTIAfy8137dM3JH5YpNo/s1600/1000417351.jpg", votes:0},
+  {id:2, name:"Calon 2", img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSqJSEiJnd-pVyeWevwZZa-aFxgwMp7C1aHN4gJg3_lm9WSWKa2-_XsHigNykhh5x-2CuL_hg1AGObsIswsNvNifOYVqxzEqEjpMK9ZCc7PZwvpSIoQk_j0O7fuxKcgxQdHVUs-qBpdyFb1sDWLG0D-MMM_VfSYnpQjjrR4d9CJmRLQWhzV2txOZwvGj8/s1600/1000417348.jpg", votes:0},
+  {id:3, name:"Calon 3", img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ6wF-nBIwHLYFZiwcluqr18SjMVgju2rlxzr3cZPFJPwMCKCZOT8SthEdKlq1TQoZ9L13eYEVdY4g4tmGP-L-mPL2Irk2i5njontfq9ox5RdtGbxBBRr-8VFJgj3N7neyvkEQqpg0PaZmuFEJ0nliAIoy9ybHJEfFUoOpDIyzdeIfkhpd_o-QBjR5eX4/s1600/1000417349.jpg", votes:0},
+  {id:4, name:"Calon 4", img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxzqFgNP1pf5Xg7XHm1WvgSxMJBxUxwTZTrfrZLcAij9epwUXPGlBOFAwiAbLhmtNf-5EYpncWpoRQM8wqQK9X-xzoo4oeJXJzZl78KQAIHrpOK15snI-NHOmJjLhi0fxqPBK6wU3juQ-O33CU2KvLurmPdWRtPcGGmM3lkQhPyZOHYrJUO0TfEIrReXo/s1600/1000417350.jpg", votes:0},
+  {id:5, name:"Calon 5", img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqw3FXgRXNiyvxl9d2G-J75_h_FzIfkzxPbdvUIql-aVEUISJNvOp7AUaOlBxm2dI6MaEzDNP-Ml5a_pK1KavU4fjwZx-vT-CWuAhXmpWprSYuxgSS9iZ9JzQLuDB3NvW3zUvkKNfBpWrj51f3hMO-Q5EoGpPn1hqOSywAUWsOx_WH9R3BlZhcIEAmoAM/s1600/1000417347.jpg", votes:0}
+];
 
-    const candidates = [
-        {
-            id: 1,
-            name: "LABA",
-            votes: 0,
-            order: 1,
-            photo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0tmHzJCyb2P__CxPLZkWbU9HK2tIAYt9NS-cs19A5SgozIO29R4ixIC6qbZo1qaJHaiGU6XCSygQLD0vPAXfQ6D15POvd5vTs4hjfg_B1xPdy4tdOgHX62_uUGI8EmSPwgkHy2XDnTFHH6jMR22_L5ch6thwcVRRivURYlqaUTIAfy8137dM3JH5YpNo/s1600/1000417351.jpg"
-        },
-        {
-            id: 2,
-            name: "RISMA",
-            votes: 0,
-            order: 2,
-            photo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSqJSEiJnd-pVyeWevwZZa-aFxgwMp7C1aHN4gJg3_lm9WSWKa2-_XsHigNykhh5x-2CuL_hg1AGObsIswsNvNifOYVqxzEqEjpMK9ZCc7PZwvpSIoQk_j0O7fuxKcgxQdHVUs-qBpdyFb1sDWLG0D-MMM_VfSYnpQjjrR4d9CJmRLQWhzV2txOZwvGj8/s1600/1000417348.jpg"
-        },
-        {
-            id: 3,
-            name: "ARYA",
-            votes: 0,
-            order: 3,
-            photo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ6wF-nBIwHLYFZiwcluqr18SjMVgju2rlxzr3cZPFJPwMCKCZOT8SthEdKlq1TQoZ9L13eYEVdY4g4tmGP-L-mPL2Irk2i5njontfq9ox5RdtGbxBBRr-8VFJgj3N7neyvkEQqpg0PaZmuFEJ0nliAIoy9ybHJEfFUoOpDIyzdeIfkhpd_o-QBjR5eX4/s1600/1000417349.jpg"
-        },
-        {
-            id: 4,
-            name: "MESYA",
-            votes: 0,
-            order: 4,
-            photo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxzqFgNP1pf5Xg7XHm1WvgSxMJBxUxwTZTrfrZLcAij9epwUXPGlBOFAwiAbLhmtNf-5EYpncWpoRQM8wqQK9X-xzoo4oeJXJzZl78KQAIHrpOK15snI-NHOmJjLhi0fxqPBK6wU3juQ-O33CU2KvLurmPdWRtPcGGmM3lkQhPyZOHYrJUO0TfEIrReXo/s1600/1000417350.jpg"
-        },
-        {
-            id: 5,
-            name: "AME",
-            votes: 0,
-            order: 5,
-            photo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqw3FXgRXNiyvxl9d2G-J75_h_FzIfkzxPbdvUIql-aVEUISJNvOp7AUaOlBxm2dI6MaEzDNP-Ml5a_pK1KavU4fjwZx-vT-CWuAhXmpWprSYuxgSS9iZ9JzQLuDB3NvW3zUvkKNfBpWrj51f3hMO-Q5EoGpPn1hqOSywAUWsOx_WH9R3BlZhcIEAmoAM/s1600/1000417347.jpg"
-        }
-    ];
+/* ===== LOAD DARI LOCAL STORAGE ===== */
+const saved = localStorage.getItem("pks_votes");
+if (saved) candidates = JSON.parse(saved);
 
-    function updateUI() {
-        const container = document.getElementById("container");
-        container.innerHTML = "";
+/* ===== RENDER ===== */
+function render() {
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+  candidates.forEach(c => {
+    list.innerHTML += `
+      <div class="card">
+        <div class="role" id="role-${c.id}">-</div>
+        <img src="${c.img}">
+        <h3>${c.name}</h3>
+        <div>Nomor Urut: ${c.id}</div>
+        <div class="vote" id="vote-${c.id}">${c.votes}</div>
+        <div class="buttons">
+          <button class="minus" onclick="minus(${c.id})">−</button>
+          <button class="plus" onclick="plus(${c.id})">+</button>
+        </div>
+      </div>`;
+  });
+  updateRole();
+}
 
-        const uniqueVotes = [...new Set(candidates.map(c => c.votes))]
-            .filter(v => v > 0)
-            .sort((a, b) => b - a);
+/* ===== VOTING ===== */
+function plus(id){
+  candidates.find(c=>c.id===id).votes++;
+  save();
+}
+function minus(id){
+  let c = candidates.find(c=>c.id===id);
+  if(c.votes>0) c.votes--;
+  save();
+}
 
-        const voteToPosition = {};
-        uniqueVotes.forEach((vote, index) => {
-            voteToPosition[vote] = positions[index] || "-";
-        });
+/* ===== SIMPAN ===== */
+function save(){
+  localStorage.setItem("pks_votes", JSON.stringify(candidates));
+  render();
+}
 
-        candidates.forEach(c => {
-            const position = voteToPosition[c.votes] || "-";
+/* ===== JABATAN ===== */
+function updateRole(){
+  const roles = [
+    "KETUA PKS",
+    "WAKIL KETUA 1",
+    "WAKIL KETUA 2",
+    "SEKRETARIS PKS",
+    "BENDAHARA PKS"
+  ];
+  const sorted = [...candidates].sort((a,b)=>b.votes-a.votes);
+  sorted.forEach((c,i)=>{
+    document.getElementById("role-"+c.id).innerText =
+      c.votes>0 ? roles[i] : "-";
+  });
+}
 
-            const card = document.createElement("div");
-            card.className = "card";
-            card.innerHTML = `
-                <div class="position">${position}</div>
-                <img class="photo" src="${c.photo}" alt="${c.name}">
-                <div class="order">No. Urut ${c.order}</div>
-                <div class="name">${c.name}</div>
-                <div class="votes">${c.votes}</div>
-                <div class="controls">
-                    <button class="minus" onclick="vote(${c.id}, -1)">−</button>
-                    <button class="plus" onclick="vote(${c.id}, 1)">+</button>
-                </div>
-            `;
-            container.appendChild(card);
-        });
-    }
+/* ===== RESET ===== */
+function resetVoting(){
+  if(confirm("Yakin reset semua suara?")){
+    candidates.forEach(c=>c.votes=0);
+    save();
+  }
+}
 
-    function vote(id, value) {
-        const c = candidates.find(x => x.id === id);
-        if (!c) return;
-        c.votes += value;
-        if (c.votes < 0) c.votes = 0;
-        updateUI();
-    }
-
-    updateUI();
+render();
 </script>
 
 </body>
